@@ -264,6 +264,16 @@ LKN>prod:=1.Array(1 2 3)do:[:i| (i+1) println. prod:=prod*i. prod println].
 6
 ````
 
+### LKN Interval
+Interval is a sequence of numbers that can be iterated:
+````
+LKN>sum:=0. Interval new from:1 to:10 step:2 do:[:i| sum:=sum+i].sum println
+25
+
+LKN>1+3+5+7+9
+25
+LKN>
+````
 
 ### Blocks can be passed as parameters:
 
@@ -485,3 +495,35 @@ NormalWeight
 2 rules triggered here sequentially:
 changed weight triggered first rule, and the new value of bmi is calculated to be ````22.49134948096885 ````
 The change of bmi value triggered the second rule, and mia became a normal weight with bmi ````22.49134948096885.````
+
+#### LKN parallel processing.
+Let's calculate the sum of 2 sequences of numbers in parallel first:
+~~~~
+LKN>sum1future:= [sum1:=0.Interval new from:1 to:2000000 step:1 do:[:i| sum1:= sum1+i].sum1] async value.
+Nil
+~~~~
+While first runs, let's do another sequence:
+~~~~
+LKN>sum2:=0.Interval new from:1 to:100000 step:1 do:[:i| sum2:=sum2+i].
+Nil
+~~~~
+The sum2 is done now; let's wait for the first to finish and retrieve the result.
+~~~~
+LKN>sum1:= sum1future value.
+Nil
+~~~~
+
+Now, we can print both:
+~~~~
+LKN>sum1 println.
+1999999000000.
+LKN>sum2 println.
+4999950000.
+~~~~
+
+The sum1future here holds the result of asynchronous operation.
+The verb value makes LKN wait till the result is ready and retrieve it.
+
+
+
+
