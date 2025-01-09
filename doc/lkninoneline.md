@@ -445,7 +445,7 @@ Adding this rule into the Person.lkn file:
 ````
 Person is a Class.
 Person instance has: name; has:height; has: weight.
-Person implements:[getBmi|| weight/(height*height)].
+Person implements:getBmi:[ weight/(height*height)].
 Person has: bmi per [:height :weight| bmi:(weight/(height*height))].
 Person has: weight_category being one of (Obese Overweight NormalWeight UnderWeight)
 		determined by 
