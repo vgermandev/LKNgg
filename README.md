@@ -71,6 +71,10 @@ The file has the implementation of the search algorithm: selfbalancing AVL tree.
 #### File:`classTest.lkn`
 The file has the implementation of the classes and instances with multiple inheritance and its ”diamond problem."
 
+#### File:`ruleinheritance.lkn`
+The file has implementation of the inheritce of rules by classes.
+
+
 
 _There will be more examples and docs uploaded._ 
 
