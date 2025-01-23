@@ -62,7 +62,7 @@ The file has the implementation of the sorting algorithms such as:
 * bubble sort
 * shell sort
 * partition sort
-* quick sort recursive and non reqursive
+* quick sort recursive and non recursive
 * heap sort
 
 #### File:`AVLTree.lkn`
