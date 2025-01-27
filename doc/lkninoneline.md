@@ -524,6 +524,62 @@ LKN>sum2 println.
 The sum1future here holds the result of asynchronous operation.
 The verb value makes LKN wait till the result is ready and retrieve it.
 
+#### LKN Actors.
+
+LKN supports actors. Any instance of any class can be an actor.
+
+Actor methods can be invoked indirectly by sending messages with method calls. 
+
+Given Class "Thing"
+
+~~~~
+Thing is a  Class.
+Thing
+	has:mass;
+	implements: description:[^(Thing with mass=+(mass asString))].
+~~~~
+
+Let's instantiate Thing with mass = 20.
+~~~~
+LKN>ts refers to a new Thing with mass:20.
+Nil
+LKN>ts mass
+20
+~~~~
+
+Let's change the mass to 30 the regular way:
+~~~~
+LKN>ts mass:30
+Instance of Thing
+LKN>ts mass
+30
+LKN>ts description
+Thing with mass=30
+~~~~
+
+Let's set mass to 200 Actor style:
+~~~~
+LKN>ts send `mass:200`.
+Starting thread pool with 2 threads
+New Thread Pool thread with id=35856
+New Thread Pool thread with id=15444
+~~~~
+Note: 
+First send activated the Thread Pool.
+Let's send message to retrive mass asynchroniacly (Actor style):
+~~~~
+LKN>mass200asyncResult := ts send `mass`.
+~~~~
+mass200asyncResult will have the result when one of the thread pool threads retrieves it.
+Let's wait for it:
+~~~~
+LKN>mass200:= mass200asyncResult value.
+Nil
+LKN>mass200
+200
+~~~~
+
+
 
 
 
