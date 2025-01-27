@@ -74,7 +74,8 @@ The file has the implementation of the classes and instances with multiple inher
 #### File:`ruleinheritance.lkn`
 The file has implementation of the inheritce of rules by classes.
 
-
+#### File:`actor.lkn`
+The file has examples of using Lkn Actors.
 
 _There will be more examples and docs uploaded._ 
 
