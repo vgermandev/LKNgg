@@ -1,0 +1,43 @@
+
+Person is a Class.
+Person instance has: name; has:height; has: weight.
+Person implements:getBmi:[ weight/(height*height)].
+Person has: bmi per [:height :weight| bmi:(weight/(height*height))].
+Person has: weight_category being one of (Obese Overweight NormalWeight UnderWeight)
+		determined by 
+		[:bmi |
+			(bmi > 30) ifTrue:[	weight_category:Obese]ifFalse:
+			[
+				(bmi >=25) ifTrue:[weight_category:Overweight]ifFalse:
+				[
+					(bmi >=18.5 ) ifTrue:[weight_category:NormalWeight]ifFalse:
+					[
+						weight_category:UnderWeight
+					]
+				]
+			]
+		].
+	
+mia refers to a new Person with name:`Mia`;weight:55.0; height:1.7.
+(mia getBmi ==  19.03114186851211) ifFalse:[`#1 rule inheritance test failed` println.exit].
+((mia bmi) ==  19.03114186851211)  ifFalse:[`#2 rule inheritance test failed` println.exit].
+
+mia send `weight:85.0`.
+miabmiF:= mia send:`bmi`.
+miabmi:= miabmiF value.
+
+((miabmi) ==  29.411764705882348)  ifFalse:[`#3 rule inheritance test failed` println.exit].
+(mia weight_category == `Overweight`) ifFalse:[`#4 rule inheritance test failed` println.exit].
+
+Student is a Person.
+Student has: school.
+
+nik refers to a new Student with name:`Nik`;weight:70.0; height:1.8.
+((nik getBmi) ==  21.60493827160494)  ifFalse:[`#5 rule inheritance test failed` println.exit].
+((nik bmi) ==  21.60493827160494)  ifFalse:[`#6 rule inheritance test failed` println.exit].
+
+nik weight:105.
+(nik bmi == 32.40740740740740) ifFalse:[`#7 rule inheritance test failed` println.exit].
+(nik weight_category == `Obese`) ifFalse:[`#8 rule inheritance test failed` println.exit].
+
+`ruleinheritance test passed` println.

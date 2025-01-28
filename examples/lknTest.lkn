@@ -15,6 +15,10 @@ reset
 evaluateFile:`AVLTree.lkn`.
 reset
 evaluateFile:`classTest.lkn`.
+reset
+evaluateFile:`actorTest.lkn`.
+reset
+evaluateFile:`ruleinheritanceTest.lkn`.
 
 `# All Lkn tests P A S S E D` println.
 
