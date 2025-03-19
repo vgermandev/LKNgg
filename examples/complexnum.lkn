@@ -1,0 +1,16 @@
+(2i4 != 2+i4) ifTrue:[`#1 complex numbers test failed` println.exit].
+((2i4 + 4)!= 6+i4) ifTrue:[`#2 complex numbers test failed` println.exit].
+((0.2i4 + 4)!= 4.2+i4) ifTrue:[`#3 complex numbers test failed` println.exit].
+
+((3-i2)*(3+i2)== 13) ifFalse:[`#4 complex numbers test failed` println.exit].
+
+((3-i2)/(3+i5) == (1.0 + i21.0)/-34.0)ifFalse:[`#5 complex numbers test failed` println.exit].
+
+(sin:4i2 == -2.84723908684883i-2.370674169352) ifFalse:[`#6 complex numbers test failed` println.exit].
+
+(cos:4i2 == -2.45913521391738i2.74481700679215) ifFalse:[`#7 complex numbers test failed` println.exit].
+
+(tan:4i2  == 0.03642336924740i1.00468231219024) ifFalse:[`#8 complex numbers test failed` println.exit].
+
+
+`Complex numbers test passed` println.

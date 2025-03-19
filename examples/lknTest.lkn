@@ -19,6 +19,12 @@ reset
 evaluateFile:`actorTest.lkn`.
 reset
 evaluateFile:`ruleinheritanceTest.lkn`.
+reset
+evaluateFile:`complexnum.lkn`.
+reset
+evaluateFile:`nvidiaTest.lkn`
+
+
 
 `# All Lkn tests P A S S E D` println.
 
